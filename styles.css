@@ -15,6 +15,11 @@
   font-family: "Computer Modern Typewriter";
 }
 
+body {
+  background-color: rgb(48, 48, 48);
+  color: gray;
+}
+
 .container div {
   display: inline-block;
   padding: 10px;
