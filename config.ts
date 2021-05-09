@@ -1,15 +1,27 @@
 const config = {
   links: {
     School: {
-      Canvas: "https://lcisd.instructure.com/",
-      Office: "https://www.office.com/?auth=2",
-      "TAMU NSC": "https://applicant.tamu.edu/NSC/Applicant/NscRegistered",
+      hotkey: "KeyS",
+      links: {
+        Canvas: { hotkey: "KeyC", link: "https://lcisd.instructure.com/" },
+        Office: { hotkey: "KeyO", link: "https://www.office.com/?auth=2" },
+        "TAMU NSC": {
+          hotkey: "KeyN",
+          link: "https://applicant.tamu.edu/NSC/Applicant/NscRegistered",
+        },
+      },
     },
     Git: {
-      Repos: "https://github.com/denizat?tab=repositories",
+      hotkey: "KeyG",
+      links: {
+        Repos: "https://github.com/denizat?tab=repositories",
+      },
     },
     Social: {
-      Gmail: "https://mail.google.com/mail/u/0/#inbox",
+      hotkey: "KeyM",
+      links: {
+        Gmail: "https://mail.google.com/mail/u/0/#inbox",
+      },
     },
   },
 
@@ -87,14 +99,14 @@ let container = document.getElementById("container");
 for (const key in ln) {
   let col = document.createElement("div");
   let text = document.createElement("p");
-  text.innerHTML = key;
+  text.innerHTML = `${key} [${ln[key].hotkey[3].toLowerCase()}]`;
   col.appendChild(text);
 
   let items = Object.keys(ln[key]);
   for (let i = 0; i < max; i++) {
     let link = document.createElement("a");
     if (items[i]) {
-      link.setAttribute("href", ln[key][items[i]]);
+      link.setAttribute("href", ln[key].links[items[i]].link);
       link.innerHTML = items[i];
       link.className = "link";
     } else {
