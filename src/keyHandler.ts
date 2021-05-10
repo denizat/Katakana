@@ -27,6 +27,8 @@ document.addEventListener("keypress", (key) => {
       }
     });
 
+    // If the user is selecting a mode, then the next thing they will do is type something in the search engine
+    document.getElementById("input_box").focus();
     lastKey = undefined;
   } else if (lastKey === "KeyL") {
     cfg.bookMarks.forEach((bookmarkColumn) => {
