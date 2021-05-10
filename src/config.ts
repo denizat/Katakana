@@ -34,6 +34,13 @@ class Config {
 
 const config = new Config();
 
+/**
+ * Can have aliases like:
+ * const ac = config.addColumn
+ * const ar = config.addRow
+ * const am = config.addMode
+ */
+
 config.addColumn("School", "KeyS");
 config.addRow("Canvas", "KeyC", "https://lcisd.instructure.com/");
 config.addRow("Office", "KeyO", "https://www.office.com/?auth=2");

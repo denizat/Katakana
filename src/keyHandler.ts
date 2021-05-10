@@ -1,14 +1,17 @@
 import { cfg, Column } from "./config.js";
 
+// Stores the last key so we can switch between shortcut modes
 let lastKey = undefined;
+// Stores the column that is selected from the shortcut combination
 let column: undefined | Column = undefined;
 
+/**
+ * Handles all of the keypresses
+ */
 document.addEventListener("keypress", (key) => {
+  // We check in order of most specific to least specific.
   if (column !== undefined) {
-    if (column.rows.length === 1) {
-      window.location.replace(column.rows[0].link);
-    }
-
+    // We could put the only one row check here and some computation, but it would cause an extra key press
     column.rows.forEach((row) => {
       if (row.hotkey === key.code) {
         window.location.replace(row.link);
@@ -28,6 +31,10 @@ document.addEventListener("keypress", (key) => {
   } else if (lastKey === "KeyL") {
     cfg.bookMarks.forEach((bookmarkColumn) => {
       if (bookmarkColumn.hotkey === key.code) {
+        // Wastes some computation but prevents from having to press again.
+        if (bookmarkColumn.rows.length === 1) {
+          window.location.replace(bookmarkColumn.rows[0].link);
+        }
         column = bookmarkColumn;
       }
     });
