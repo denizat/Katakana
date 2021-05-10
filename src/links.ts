@@ -1,40 +1,34 @@
-import { config } from "./config.js";
-const ln = config.links;
+import { cfg } from "./config.js";
 
-// This gets the max ammount of links for any one column so they stay uniform (might be able to replace this with css?)
 let max = 0;
-Object.keys(ln).forEach((key) => {
-  if (Object.keys(ln[key]).length > max) {
-    max = Object.keys(ln[key]).length;
+cfg.bookMarks.forEach((column) => {
+  if (column.rows.length > max) {
+    max = column.rows.length;
   }
 });
 
 let container = document.getElementById("container");
-for (const key in ln) {
+cfg.bookMarks.forEach((column) => {
   let col = document.createElement("div");
   let text = document.createElement("p");
-  text.innerHTML = `${key} [${ln[key].hotkey[3].toLowerCase()}]`;
+  text.innerHTML = `${column.name} [${column.hotkey[3].toLowerCase()}]`;
   col.appendChild(text);
 
-  let count = 0;
-  let items = Object.keys(ln[key].links);
-  for (const a in ln[key].links) {
+  column.rows.forEach((row) => {
     let link = document.createElement("a");
-    link.setAttribute("href", ln[key].links[a].link);
+    link.setAttribute("href", row.link);
     link.className = "link";
-    if (ln[key].links[a].hotkey) {
-      link.innerHTML = `${a} [${ln[key].links[a].hotkey[3].toLowerCase()}]`;
-    } else {
-      link.innerHTML = a;
+
+    link.innerHTML = `${row.name} [${row.hotkey[3].toLowerCase()}]`;
+    col.appendChild(link);
+    if (0 < column.rows.length % max) {
+      for (let i = 0; i < (column.rows.length % max) + 1; i++) {
+        let link = document.createElement("a");
+        link.className = "link null";
+        link.innerHTML = "link null";
+        col.appendChild(link);
+      }
     }
-    col.appendChild(link);
-    count += 1;
-  }
-  for (let i = 0; i < max - count + 1; i++) {
-    let link = document.createElement("a");
-    link.className = "link null";
-    link.innerHTML = "link null";
-    col.appendChild(link);
-  }
+  });
   container.appendChild(col);
-}
+});
