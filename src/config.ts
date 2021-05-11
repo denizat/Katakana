@@ -3,11 +3,20 @@ export type Hotkey = `Key${string}`;
 export type Row = { name: string; hotkey?: Hotkey; link: Link };
 export type Column = { name: string; hotkey: Hotkey; rows: Row[] };
 type BookMarks = Column[];
-type Modes = { name: string; hotkey: Hotkey; linkOrPrefix: Link | string }[];
+interface Mode {
+  name: string;
+  hotkey: Hotkey;
+  linkOrPrefix: string;
+}
+// type Modes = { name: string; hotkey: Hotkey; linkOrPrefix: URL | string }[];
+type Modes = Mode[];
 
 class Config {
   bookMarks: BookMarks = [];
   searchModes: Modes = [];
+  // This is the link that is first loaded for the search bar.
+  // ADD PREFIX HANDLER
+  defaultSearchLink: string;
 
   addColumn(columnName: string, columnHotkey: Hotkey) {
     this.bookMarks.push({
@@ -56,6 +65,13 @@ config.addRow("Repos", "KeyR", "https://github.com/denizat?tab=repositories");
 config.addColumn("Social", "KeyM");
 config.addRow("Gmail", "KeyM", "https://github.com/denizat?tab=repositories");
 
-config.addMode("G**GLE", "KeyG", "https://google.com");
+config.addMode("G**GLE", "KeyG", "https://google.com/search?q=");
+config.addMode("Searx", "KeyS", "https://searx.info/search?q=");
+config.addMode("Duck Duck Go", "KeyD", "https://duckduckgo.com/?q=");
+config.addMode("Arch Linux", "KeyA", "Arch Linux ");
+config.addMode("Typescript", "KeyT", "Typescript ");
+
+// config.defaultSearchLink = "https://duckduckgo.com/";
+config.defaultSearchLink = config.searchModes[0].linkOrPrefix;
 
 export const cfg = config;

@@ -14,7 +14,7 @@ document.addEventListener("keypress", (key) => {
     // We could put the only one row check here and some computation, but it would cause an extra key press
     column.rows.forEach((row) => {
       if (row.hotkey === key.code) {
-        window.location.replace(row.link);
+        window.location.assign(row.link);
       }
     });
 
@@ -23,6 +23,9 @@ document.addEventListener("keypress", (key) => {
     cfg.searchModes.forEach((mode) => {
       if (mode.hotkey === key.code) {
         (<HTMLInputElement>document.getElementById("mode")).value =
+          mode.linkOrPrefix;
+
+        (<HTMLFormElement>document.getElementById("search")).action =
           mode.linkOrPrefix;
       }
     });
@@ -35,7 +38,7 @@ document.addEventListener("keypress", (key) => {
       if (bookmarkColumn.hotkey === key.code) {
         // Wastes some computation but prevents from having to press again.
         if (bookmarkColumn.rows.length === 1) {
-          window.location.replace(bookmarkColumn.rows[0].link);
+          window.location.assign(bookmarkColumn.rows[0].link);
         }
         column = bookmarkColumn;
       }

@@ -11,13 +11,15 @@
     <div class="search-box">
       <select name="mode" id="mode" autocomplete></select>
       <span>[m]</span>
-      <input
-        id="input_box"
-        class="input_box"
-        type="text"
-        name="input_box"
-        autocomplete="off"
-      />
+      <form id="search" class="search" method="get">
+        <input
+          id="input_box"
+          class="input_box"
+          type="text"
+          name="q"
+          autocomplete="off"
+        />
+      </form>
       <span>[s]</span>
     </div>
     <div id="container" class="container"></div>

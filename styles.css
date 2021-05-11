@@ -36,3 +36,7 @@ body {
 .null {
   opacity: 0;
 }
+
+.search {
+  display: inline;
+}
