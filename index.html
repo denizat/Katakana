@@ -8,21 +8,23 @@
     <title>ホームページ</title>
   </head>
   <body>
-    <div class="search-box">
-      <select name="mode" id="mode" autocomplete></select>
-      <span>[m]</span>
-      <form id="search" class="search" method="get">
-        <input
-          id="input_box"
-          class="input_box"
-          type="text"
-          name="q"
-          autocomplete="off"
-        />
-      </form>
-      <span>[s]</span>
+    <div id="root">
+      <div class="search-box">
+        <select name="mode" id="mode" autocomplete></select>
+        <span>[m]</span>
+        <form id="search" class="search" method="get">
+          <input
+            id="input_box"
+            class="input_box"
+            type="text"
+            name="q"
+            autocomplete="off"
+          />
+        </form>
+        <span>[s]</span>
+      </div>
+      <div id="container" class="container"></div>
     </div>
-    <div id="container" class="container"></div>
     <script type="module" src="./src/index.js"></script>
   </body>
 </html>

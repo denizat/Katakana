@@ -40,6 +40,8 @@ class Config {
       linkOrPrefix: modeLinkOrPrefix,
     });
   }
+
+  zenMode: boolean = true;
 }
 
 const config = new Config();

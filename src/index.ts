@@ -1,6 +1,10 @@
-// First because most obvious element
-import "./links.js";
-// Second because most important interaction
+import { cfg } from "./config.js";
+
+if (!cfg.zenMode) {
+  import("./links.js").then();
+  import("./modes.js").then();
+} else {
+  document.getElementById("root").style.visibility = "hidden";
+}
 import "./keyHandler.js";
-// Last because least obvious and necessary element
-import "./modes.js";
+import "./searchHandler.js";
