@@ -1,3 +1,4 @@
+// Need to learn how to use regex with types.
 export type Link = `http${string}`;
 export type Hotkey = `Key${string}`;
 export type Row = { name: string; hotkey?: Hotkey; link: Link };
@@ -63,7 +64,7 @@ config.addColumn("Git", "KeyG");
 config.addRow("Repos", "KeyR", "https://github.com/denizat?tab=repositories");
 
 config.addColumn("Social", "KeyM");
-config.addRow("Gmail", "KeyM", "https://github.com/denizat?tab=repositories");
+config.addRow("Gmail", "KeyM", "https://mail.google.com/mail/u/0/#inbox");
 
 config.addMode("G**GLE", "KeyG", "https://google.com/search?q=");
 config.addMode("Searx", "KeyS", "https://searx.info/search?q=");
