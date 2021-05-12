@@ -5,18 +5,21 @@ module.exports = {
   entry: "./src/index.ts",
   target: "web",
   resolve: {
-    modules: [
-      path.resolve(__dirname, "src"),
-      path.resolve(__dirname, "node_modules"),
-    ],
+    extensions: [".ts"],
   },
   devtool: "eval",
-  mode: "development",
+  mode: "production",
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+  },
+
   module: {
     rules: [
       {
         test: /\.ts$/,
-        loader: "awesome-typescript-loader",
+        loader: "ts-loader",
+        exclude: "/node_modules/",
       },
     ],
   },
