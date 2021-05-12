@@ -7,7 +7,7 @@ module.exports = {
   resolve: {
     extensions: [".ts"],
   },
-  devtool: "eval",
+  // devtool: "eval",
   mode: "production",
   output: {
     filename: "bundle.js",

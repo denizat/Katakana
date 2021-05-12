@@ -1,3 +1,6 @@
+// window.open(chrome.runtime.getURL("newpage.html"));
+// window.close();
+
 import "./links.ts";
 import "./style.ts";
 
