@@ -4,7 +4,6 @@
   "version": "1.0",
   "manifest_version": 3,
   "chrome_url_overrides": {
-    "newtab": "newpage.html"
-  },
-  "options_page": "./dist/index.html"
+    "newtab": "./dist/index.html"
+  }
 }

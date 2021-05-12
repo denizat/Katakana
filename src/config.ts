@@ -81,6 +81,9 @@ config.defaultSearchLink = config.searchModes[0].linkOrPrefix;
 
 config.zenMode = false;
 
-config.styles = ["../styles/Typewriter.css", "../styles/CM.css"];
+config.styles = [
+  "../styles/Typewriter.css",
+  // "../styles/CM.css"
+];
 
 export const cfg = config;
