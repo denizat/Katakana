@@ -1,12 +1,12 @@
-@import "./fonts/Typewriter/cmun-typewriter.css";
+@import "./fonts/Computer Modern Serif/Serif/cmun-serif.css";
 
 * {
-  font-family: "Computer Modern Typewriter";
+  font-family: "Computer Modern Serif";
 }
 
 body {
-  background-color: #040404;
-  color: rgb(255, 255, 255);
+  background-color: #f4f4f4;
+  color: #0f0f0f;
 }
 
 .link {

@@ -3,7 +3,9 @@
   "compilerOptions": {
     "sourceMap": true,
     "module": "es2020",
-    "target": "es5",
-    "lib": ["ES2015", "DOM"]
-  }
+    "target": "es6",
+    "lib": ["ES2015", "es2017", "DOM"],
+    "types": ["chrome"]
+  },
+  "exclude": ["node_modules"]
 }

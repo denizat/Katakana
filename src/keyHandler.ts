@@ -1,4 +1,4 @@
-import { cfg, Column } from "./config.js";
+import { cfg, Column } from "./config";
 
 // Stores the last key so we can switch between shortcut modes
 let lastKey = undefined;
@@ -8,20 +8,20 @@ let column: undefined | Column = undefined;
 /**
  * Handles all of the keypresses
  */
-document.addEventListener("keypress", (key) => {
+document.addEventListener("keypress", (evt) => {
   // We check in order of most specific to least specific.
   if (column !== undefined) {
     // We could put the only one row check here and some computation, but it would cause an extra key press
     column.rows.forEach((row) => {
-      if (row.hotkey === key.code) {
+      if (row.hotkey === evt.key) {
         window.location.assign(row.link);
       }
     });
 
     column = undefined;
-  } else if (lastKey === "KeyM") {
+  } else if (lastKey === "m") {
     cfg.searchModes.forEach((mode) => {
-      if (mode.hotkey === key.code) {
+      if (mode.hotkey === evt.key) {
         (<HTMLInputElement>document.getElementById("mode")).value =
           mode.linkOrPrefix;
 
@@ -33,9 +33,9 @@ document.addEventListener("keypress", (key) => {
     // If the user is selecting a mode, then the next thing they will do is type something in the search engine
     document.getElementById("input_box").focus();
     lastKey = undefined;
-  } else if (lastKey === "KeyL") {
+  } else if (lastKey === "l") {
     cfg.bookMarks.forEach((bookmarkColumn) => {
-      if (bookmarkColumn.hotkey === key.code) {
+      if (bookmarkColumn.hotkey === evt.key) {
         // Wastes some computation but prevents from having to press again.
         if (bookmarkColumn.rows.length === 1) {
           window.location.assign(bookmarkColumn.rows[0].link);
@@ -47,18 +47,23 @@ document.addEventListener("keypress", (key) => {
     lastKey = undefined;
   } else {
     if (document.activeElement.id !== "input_box") {
-      switch (key.code) {
-        case "KeyS":
-          key.preventDefault();
+      console.log(evt.key);
+      switch (evt.key) {
+        case "s":
+          evt.preventDefault();
           document.getElementById("input_box").focus();
           break;
-        case "KeyM":
-          lastKey = "KeyM";
+        case "m":
+          lastKey = "m";
           document.getElementById("mode").focus();
           break;
-        case "KeyL":
-          lastKey = "KeyL";
+        case "l":
+          lastKey = "l";
           break;
+        // case "Escape":
+        //   console.log("werks");
+        //   lastKey = undefined;
+        //   break;
         default:
           lastKey = undefined;
           break;

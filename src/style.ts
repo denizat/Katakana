@@ -1,4 +1,4 @@
-import { cfg } from "./config.js";
+import { cfg } from "./config";
 
 let head = document.getElementsByTagName("head")[0];
 let link = document.createElement("link");
