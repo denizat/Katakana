@@ -43,7 +43,7 @@ class Config {
 
   zenMode: boolean;
 
-  fonts: string[];
+  styles: string[];
 }
 
 const config = new Config();
@@ -81,9 +81,6 @@ config.defaultSearchLink = config.searchModes[0].linkOrPrefix;
 
 config.zenMode = false;
 
-config.fonts = [
-  "./fonts/Typewriter/cmun-typewriter.css",
-  "./fonts/Computer Modern Serif/Serif/cmun-serif.css",
-];
+config.styles = ["./styles/Typewriter.css"];
 
 export const cfg = config;

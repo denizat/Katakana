@@ -1,7 +1,5 @@
-/* https://medium.com/@haxzie/dark-and-light-theme-switcher-using-css-variables-and-pure-javascript-zocada-dd0059d72fa2 */
-
 body {
-  font-family: "Computer Modern Typewriter", "Computer Modern Serif";
+  font-family: "Computer Modern Typewriter";
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
 }

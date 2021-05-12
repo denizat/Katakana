@@ -3,7 +3,6 @@
     "typescript": "^4.2.4"
   },
   "scripts": {
-    "build": "tsc config.ts",
-    "clean": "rm config.js"
+    "build": "tsc config.ts"
   }
 }
