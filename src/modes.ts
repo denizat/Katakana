@@ -4,7 +4,7 @@ let DOMMode = document.getElementById("mode");
 cfg.searchModes.forEach((mode) => {
   let opt = document.createElement("option");
   opt.setAttribute("value", mode.linkOrPrefix);
-  opt.innerHTML = `${mode.name} [${mode.hotkey[3].toLowerCase()}]`;
+  opt.innerHTML = `${mode.name} [${mode.hotkey[0]}]`;
   DOMMode.appendChild(opt);
 });
 

@@ -12,7 +12,7 @@ let container = document.getElementById("container");
 cfg.bookMarks.forEach((column) => {
   let col = document.createElement("div");
   let text = document.createElement("p");
-  text.innerHTML = `${column.name} [${column.hotkey[3].toLowerCase()}]`;
+  text.innerHTML = `${column.name} [${column.hotkey[0]}]`;
   col.appendChild(text);
 
   column.rows.forEach((row) => {
@@ -20,7 +20,7 @@ cfg.bookMarks.forEach((column) => {
     link.setAttribute("href", row.link);
     link.className = "link";
 
-    link.innerHTML = `${row.name} [${row.hotkey[3].toLowerCase()}]`;
+    link.innerHTML = `${row.name} [${row.hotkey[0]}]`;
     col.appendChild(link);
     if (0 < column.rows.length % max) {
       for (let i = 0; i < (column.rows.length % max) + 1; i++) {

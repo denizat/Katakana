@@ -1,6 +1,6 @@
 // Need to learn how to use regex with types.
 export type Link = `http${string}`;
-export type Hotkey = `Key${string}`;
+export type Hotkey = string;
 export type Row = { name: string; hotkey?: Hotkey; link: Link };
 export type Column = { name: string; hotkey: Hotkey; rows: Row[] };
 type BookMarks = Column[];
@@ -55,32 +55,32 @@ const config = new Config();
  * const am = config.addMode
  */
 
-config.addColumn("School", "KeyS");
-config.addRow("Canvas", "KeyC", "https://lcisd.instructure.com/");
-config.addRow("Office", "KeyO", "https://www.office.com/?auth=2");
+config.addColumn("School", "s");
+config.addRow("Canvas", "c", "https://lcisd.instructure.com/");
+config.addRow("Office", "o", "https://www.office.com/?auth=2");
 config.addRow(
   "TAMU NSC",
-  "KeyT",
+  "t",
   "https://applicant.tamu.edu/NSC/Applicant/NscRegistered"
 );
 
-config.addColumn("Git", "KeyG");
-config.addRow("Repos", "KeyR", "https://github.com/denizat?tab=repositories");
+config.addColumn("Git", "g");
+config.addRow("Repos", "r", "https://github.com/denizat?tab=repositories");
 
-config.addColumn("Social", "KeyM");
-config.addRow("Gmail", "KeyM", "https://mail.google.com/mail/u/0/#inbox");
+config.addColumn("Social", "m");
+config.addRow("Gmail", "m", "https://mail.google.com/mail/u/0/#inbox");
 
-config.addMode("G**GLE", "KeyG", "https://google.com/search?q=");
-config.addMode("Searx", "KeyS", "https://searx.info/search?q=");
-config.addMode("Duck Duck Go", "KeyD", "https://duckduckgo.com/?q=");
-config.addMode("Arch Linux", "KeyA", "Arch Linux ");
-config.addMode("Typescript", "KeyT", "Typescript ");
+config.addMode("G**GLE", "g", "https://google.com/search?q=");
+config.addMode("Searx", "s", "https://searx.info/search?q=");
+config.addMode("Duck Duck Go", "d", "https://duckduckgo.com/?q=");
+config.addMode("Arch Linux", "a", "Arch Linux ");
+config.addMode("Typescript", "t", "Typescript ");
 
 // config.defaultSearchLink = "https://duckduckgo.com/";
 config.defaultSearchLink = config.searchModes[0].linkOrPrefix;
 
 config.zenMode = false;
 
-config.styles = ["./styles/Typewriter.css"];
+config.styles = ["../styles/Typewriter.css"];
 
 export const cfg = config;
