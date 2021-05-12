@@ -41,7 +41,9 @@ class Config {
     });
   }
 
-  zenMode: boolean = true;
+  zenMode: boolean;
+
+  fonts: string[];
 }
 
 const config = new Config();
@@ -76,5 +78,12 @@ config.addMode("Typescript", "KeyT", "Typescript ");
 
 // config.defaultSearchLink = "https://duckduckgo.com/";
 config.defaultSearchLink = config.searchModes[0].linkOrPrefix;
+
+config.zenMode = false;
+
+config.fonts = [
+  "./fonts/Typewriter/cmun-typewriter.css",
+  "./fonts/Computer Modern Serif/Serif/cmun-serif.css",
+];
 
 export const cfg = config;

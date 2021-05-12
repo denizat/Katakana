@@ -1,23 +1,13 @@
-@font-face {
-  font-family: "Computer Modern Typewriter";
-  src: url("Typewriter/cmuntt.eot");
-  src: url("Typewriter/cmuntt.eot?#iefix") format("embedded-opentype"),
-    url("Typewriter/cmuntt.woff") format("woff"),
-    url("Typewriter/cmuntt.ttf") format("truetype"),
-    url("Typewriter/cmuntt.svg#cmuntt") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-weight: normal;
-  font-style: normal;
-}
-
-* {
-  font-family: "Computer Modern Typewriter";
-}
+/* https://medium.com/@haxzie/dark-and-light-theme-switcher-using-css-variables-and-pure-javascript-zocada-dd0059d72fa2 */
 
 body {
-  background-color: rgb(48, 48, 48);
-  color: gray;
+  font-family: "Computer Modern Typewriter", "Computer Modern Serif";
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.link {
+  color: red;
 }
 
 .container div {
