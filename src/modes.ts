@@ -1,4 +1,4 @@
-import { cfg } from "./config.js";
+import { cfg } from "./config";
 let DOMMode = document.getElementById("mode");
 
 cfg.searchModes.forEach((mode) => {

@@ -1,4 +1,4 @@
-import { cfg } from "./config.js";
+import { cfg } from "./config";
 
 // Gets the max row among all columns so that we can have them be an even height, might remove this if there is a css solution but I don't know css so its here for now.
 let max = 0;

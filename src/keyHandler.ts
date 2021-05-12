@@ -1,4 +1,4 @@
-import { cfg, Column } from "./config.js";
+import { cfg, Column } from "./config.ts";
 
 // Stores the last key so we can switch between shortcut modes
 let lastKey = undefined;
