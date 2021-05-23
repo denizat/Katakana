@@ -77,7 +77,7 @@ config.addMode("Typescript", "t", "Typescript ");
 // config.defaultSearchLink = "https://duckduckgo.com/";
 config.defaultSearchLink = config.searchModes[0].linkOrPrefix;
 
-config.zenMode = true;
+config.zenMode = false;
 config.grabMouse = true;
 
 export const cfg = config;
