@@ -1,12 +1,17 @@
+
 @import "./fonts/Typewriter/cmun-typewriter.css";
 
-* {
-  font-family: "Computer Modern Typewriter";
-}
 
 body {
   background-color: #040404;
   color: rgb(255, 255, 255);
+}
+
+
+
+
+* {
+  font-family: "Computer Modern Typewriter";
 }
 
 .link {

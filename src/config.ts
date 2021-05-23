@@ -9,14 +9,11 @@ interface Mode {
   hotkey: Hotkey;
   linkOrPrefix: string;
 }
-// type Modes = { name: string; hotkey: Hotkey; linkOrPrefix: URL | string }[];
 type Modes = Mode[];
 
 class Config {
   bookMarks: BookMarks = [];
   searchModes: Modes = [];
-  // This is the link that is first loaded for the search bar.
-  // ADD PREFIX HANDLER
   defaultSearchLink: string;
 
   addColumn(columnName: string, columnHotkey: Hotkey) {
@@ -79,11 +76,6 @@ config.addMode("Typescript", "t", "Typescript ");
 // config.defaultSearchLink = "https://duckduckgo.com/";
 config.defaultSearchLink = config.searchModes[0].linkOrPrefix;
 
-config.zenMode = false;
-
-config.styles = [
-  "../styles/Typewriter.css",
-  // "../styles/CM.css"
-];
+config.zenMode = true;
 
 export const cfg = config;

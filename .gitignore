@@ -2,4 +2,6 @@ node_modules
 
 src/*.js*
 
-dist
+dist/*
+!dist/styles
+!dist/manifest.json
