@@ -47,7 +47,6 @@ document.addEventListener("keypress", (evt) => {
     lastKey = undefined;
   } else {
     if (document.activeElement.id !== "input_box") {
-      console.log(evt.key);
       switch (evt.key) {
         case "s":
           evt.preventDefault();
@@ -60,10 +59,6 @@ document.addEventListener("keypress", (evt) => {
         case "l":
           lastKey = "l";
           break;
-        // case "Escape":
-        //   console.log("werks");
-        //   lastKey = undefined;
-        //   break;
         default:
           lastKey = undefined;
           break;
@@ -71,3 +66,9 @@ document.addEventListener("keypress", (evt) => {
     }
   }
 });
+
+document.onkeydown = (evt) => {
+  if (evt.code === "Escape") {
+    (<HTMLElement>document.activeElement).blur();
+  }
+};

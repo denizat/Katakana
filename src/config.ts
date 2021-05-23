@@ -16,6 +16,7 @@ class Config {
   searchModes: Modes = [];
   defaultSearchLink: string;
   grabMouse: boolean;
+  startWithFocusOnSearchBar: boolean;
 
   addColumn(columnName: string, columnHotkey: Hotkey) {
     this.bookMarks.push({
@@ -79,5 +80,6 @@ config.defaultSearchLink = config.searchModes[0].linkOrPrefix;
 
 config.zenMode = false;
 config.grabMouse = true;
+config.startWithFocusOnSearchBar = true;
 
 export const cfg = config;

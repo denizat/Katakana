@@ -12,6 +12,10 @@ if (cfg.grabMouse) {
   });
 }
 
+if (cfg.startWithFocusOnSearchBar) {
+  document.getElementById("input_box").focus();
+}
+
 if (!cfg.zenMode) {
   import("./links").then();
 } else {
