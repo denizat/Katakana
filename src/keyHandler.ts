@@ -45,24 +45,22 @@ document.addEventListener("keypress", (evt) => {
     });
 
     lastKey = undefined;
-  } else {
-    if (document.activeElement.id !== "input_box") {
-      switch (evt.key) {
-        case "s":
-          evt.preventDefault();
-          document.getElementById("input_box").focus();
-          break;
-        case "m":
-          lastKey = "m";
-          document.getElementById("mode").focus();
-          break;
-        case "l":
-          lastKey = "l";
-          break;
-        default:
-          lastKey = undefined;
-          break;
-      }
+  } else if (document.activeElement.id !== "input_box") {
+    switch (evt.key) {
+      case "s":
+        evt.preventDefault();
+        document.getElementById("input_box").focus();
+        break;
+      case "m":
+        lastKey = "m";
+        document.getElementById("mode").focus();
+        break;
+      case "l":
+        lastKey = "l";
+        break;
+      default:
+        lastKey = undefined;
+        break;
     }
   }
 });
