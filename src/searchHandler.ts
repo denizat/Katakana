@@ -13,7 +13,6 @@ document.getElementById("search").onsubmit = (form) => {
   // We have to have an else here because js goes too fast and does the second thing before the first.
   else {
     window.location.assign(
-      // console.log(
       cfg.defaultSearchLink +
         (<HTMLInputElement>document.getElementById("mode")).value +
         (<HTMLInputElement>document.getElementById("input_box")).value
