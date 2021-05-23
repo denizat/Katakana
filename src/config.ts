@@ -15,6 +15,7 @@ class Config {
   bookMarks: BookMarks = [];
   searchModes: Modes = [];
   defaultSearchLink: string;
+  grabMouse: boolean;
 
   addColumn(columnName: string, columnHotkey: Hotkey) {
     this.bookMarks.push({
@@ -77,5 +78,6 @@ config.addMode("Typescript", "t", "Typescript ");
 config.defaultSearchLink = config.searchModes[0].linkOrPrefix;
 
 config.zenMode = true;
+config.grabMouse = true;
 
 export const cfg = config;
