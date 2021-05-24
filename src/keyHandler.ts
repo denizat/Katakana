@@ -65,6 +65,7 @@ document.addEventListener("keypress", (evt) => {
   }
 });
 
+// Handles the escape key
 document.onkeydown = (evt) => {
   if (evt.code === "Escape") {
     (<HTMLElement>document.activeElement).blur();
