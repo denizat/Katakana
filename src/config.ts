@@ -79,7 +79,8 @@ config.addMode("Typescript", "t", "Typescript ");
 config.defaultSearchLink = config.searchModes[0].linkOrPrefix;
 
 config.zenMode = false;
-config.grabMouse = true;
+config.grabMouse = false;
 config.startWithFocusOnSearchBar = true;
 
-export const cfg = config;
+// export const cfg = config;
+chrome.storage.sync.set({ cfg: config });
