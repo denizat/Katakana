@@ -84,3 +84,7 @@ config.startWithFocusOnSearchBar = true;
 
 // export const cfg = config;
 chrome.storage.sync.set({ cfg: config });
+
+chrome.storage.sync.get(["cfg"], (e) => {
+  document.getElementById("root").innerHTML = JSON.stringify(e.cfg);
+});

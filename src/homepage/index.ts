@@ -1,5 +1,5 @@
 // import { cfg } from "./config";
-import "./config";
+// import "../config";
 
 chrome.storage.sync.get(["cfg"], (e) => {
   let cfg = e.cfg;

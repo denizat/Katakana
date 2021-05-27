@@ -3,14 +3,17 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: {
+    homepage: "./src/homepage/index.ts",
+    options: "./src/options/config.ts",
+  },
   target: "web",
   resolve: {
     extensions: [".ts"],
   },
   mode: "production",
   output: {
-    filename: "bundle.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
   },
 
@@ -25,7 +28,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src", "index.html"),
+      filename: "index.html",
+      template: path.resolve(__dirname, "src", "homepage", "index.html"),
+      chunks: ["homepage"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "options.html",
+      template: path.resolve(__dirname, "src", "options", "options.html"),
+      chunks: ["options"],
     }),
     // new webpack.optimize.LimitChunkCountPlugin({
     //   maxChunks: 1,
