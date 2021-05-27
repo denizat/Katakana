@@ -1,13 +1,24 @@
 // Need to learn how to use regex with types.
 export type Link = `http${string}`;
 export type Hotkey = string;
-export type Row = { name: string; hotkey?: Hotkey; link: Link };
-export type Column = { name: string; hotkey: Hotkey; rows: Row[] };
+export type Row = {
+  name: string;
+  hotkey?: Hotkey;
+  link: Link;
+  hidden: boolean;
+};
+export type Column = {
+  name: string;
+  hotkey: Hotkey;
+  rows: Row[];
+  hidden: boolean;
+};
 type BookMarks = Column[];
 interface Mode {
   name: string;
   hotkey: Hotkey;
   linkOrPrefix: string;
+  hidden: boolean;
 }
 type Modes = Mode[];
 
@@ -18,25 +29,42 @@ class Config {
   grabMouse: boolean;
   startWithFocusOnSearchBar: boolean;
 
-  addColumn(columnName: string, columnHotkey: Hotkey) {
+  addColumn(
+    columnName: string,
+    columnHotkey: Hotkey,
+    columnHidden: boolean = false
+  ) {
     this.bookMarks.push({
       name: columnName,
       hotkey: columnHotkey,
       rows: [],
+      hidden: columnHidden,
     });
   }
-  addRow(rowName: string, rowHotkey: Hotkey, rowLink: Link) {
+  addRow(
+    rowName: string,
+    rowHotkey: Hotkey,
+    rowLink: Link,
+    rowHidden: boolean = false
+  ) {
     this.bookMarks[this.bookMarks.length - 1].rows.push({
       name: rowName,
       hotkey: rowHotkey,
       link: rowLink,
+      hidden: rowHidden,
     });
   }
-  addMode(modeName, modeHotkey: Hotkey, modeLinkOrPrefix) {
+  addMode(
+    modeName,
+    modeHotkey: Hotkey,
+    modeLinkOrPrefix,
+    modeHidden: boolean = false
+  ) {
     this.searchModes.push({
       name: modeName,
       hotkey: modeHotkey,
       linkOrPrefix: modeLinkOrPrefix,
+      hidden: modeHidden,
     });
   }
 
@@ -63,13 +91,13 @@ config.addRow(
   "https://applicant.tamu.edu/NSC/Applicant/NscRegistered"
 );
 
-config.addColumn("Git", "g");
+config.addColumn("Git", "g", true);
 config.addRow("Repos", "r", "https://github.com/denizat?tab=repositories");
 
 config.addColumn("Social", "m");
 config.addRow("Gmail", "m", "https://mail.google.com/mail/u/0/#inbox");
 
-config.addMode("G**GLE", "g", "https://google.com/search?q=");
+config.addMode("G**GLE", "g", "https://google.com/search?q=", true);
 config.addMode("Searx", "s", "https://searx.info/search?q=");
 config.addMode("Duck Duck Go", "d", "https://duckduckgo.com/?q=");
 config.addMode("Arch Linux", "a", "Arch Linux ");

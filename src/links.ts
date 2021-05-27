@@ -12,15 +12,19 @@ let container = document.getElementById("container");
 cfg.bookMarks.forEach((column) => {
   let col = document.createElement("div");
   let text = document.createElement("p");
-  text.innerHTML = `${column.name} [${column.hotkey[0]}]`;
+  if (column.hidden !== true) {
+    text.innerHTML = `${column.name} [${column.hotkey[0]}]`;
+  }
+
   col.appendChild(text);
 
   column.rows.forEach((row) => {
     let link = document.createElement("a");
-    link.setAttribute("href", row.link);
     link.className = "link";
-
-    link.innerHTML = `${row.name} [${row.hotkey[0]}]`;
+    if (row.hidden !== true && column.hidden !== true) {
+      link.setAttribute("href", row.link);
+      link.innerHTML = `${row.name} [${row.hotkey[0]}]`;
+    }
     col.appendChild(link);
     if (0 < column.rows.length % max) {
       for (let i = 0; i < (column.rows.length % max) + 1; i++) {
