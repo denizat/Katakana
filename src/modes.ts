@@ -1,17 +1,20 @@
-import { cfg } from "./config";
-let DOMMode = document.getElementById("mode");
+import { Element } from "@denizat/node_html";
+import { cfg } from "./config.js";
+import { d } from "./document.js";
+let DOMMode = d.getElementById("mode");
 
 cfg.searchModes.forEach((mode) => {
   if (!mode.hidden) {
-    let opt = document.createElement("option");
+    let opt = new Element("option", DOMMode);
     opt.setAttribute("value", mode.linkOrPrefix);
-    opt.innerHTML = `${mode.name} [${mode.hotkey[0]}]`;
-    DOMMode.appendChild(opt);
+    opt.appendChild(`${mode.name} [${mode.hotkey[0]}]`);
   }
 });
 
-(<HTMLInputElement>document.getElementById("mode")).value =
-  cfg.defaultSearchLink;
+export const modes = DOMMode;
 
-(<HTMLFormElement>document.getElementById("search")).action =
-  cfg.defaultSearchLink;
+// (<HTMLInputElement>document.getElementById("mode")).value =
+//   cfg.defaultSearchLink;
+
+// (<HTMLFormElement>document.getElementById("search")).action =
+//   cfg.defaultSearchLink;

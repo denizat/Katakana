@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@denizat/node_html@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@denizat/node_html/-/node_html-1.0.2.tgz#6091be1d0e82d576c7549baef05f42d2c970e584"
-  integrity sha512-JZ6sQjzLYkSXfWMH6M8OGlbQ/6gNDbMSBoMTXOHclZhhgEyHZzT1SqTpEUK45irDG19nAmHmfef5dRz6lsixyQ==
+"@denizat/node_html@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@denizat/node_html/-/node_html-3.0.0.tgz#d8224fe85bf25b772ae06176ede6a9a0e5261eb6"
+  integrity sha512-WlockVX6Kyj7IsTiLrmDfTmZza0lq6VoU53LLcRbbc8afPlrU+T9UHiV1YFlgtdIx0ehonCpdDUxIZFBscG1Cg==
 
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.2"
@@ -85,6 +85,11 @@
   version "15.0.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.0.2.tgz#51e9c0920d1b45936ea04341aa3e2e58d339fb67"
   integrity sha512-p68+a+KoxpoB47015IeYZYRrdqMUcpbK8re/zpFB8Ld46LHC1lPEbp3EXgkEhAYEcPvjJF6ZO+869SQ0aH1dcA==
+
+"@types/node@^15.6.1":
+  version "15.6.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.6.1.tgz#32d43390d5c62c5b6ec486a9bc9c59544de39a08"
+  integrity sha512-7EIraBEyRHEe7CH+Fm1XvgqU6uwZN8Q7jppJGcqjROMT29qhAuuOxYB1uEY5UMYQKEmA5D+5tBnhdaPXSsLONA==
 
 "@webassemblyjs/ast@1.11.0":
   version "1.11.0"
@@ -1362,6 +1367,11 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
+
+fs@^0.0.1-security:
+  version "0.0.1-security"
+  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
+  integrity sha1-invTcYa23d84E/I4WLV+yq9eQdQ=
 
 fsevents@^1.2.7:
   version "1.2.13"

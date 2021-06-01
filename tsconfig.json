@@ -7,7 +7,7 @@
     "target": "es6",
     "outDir": "dist",
     "lib": ["ES2015", "es2017", "DOM"],
-    "types": ["chrome"]
+    "types": ["chrome", "node"]
   },
   "exclude": ["node_modules"]
 }

@@ -1,8 +1,41 @@
 import { Element, render } from "@denizat/node_html";
 import { links } from "./links.js";
+import { modes } from "./modes.js";
+import { d } from "./document.js";
+import { cfg } from "./config.js";
+import * as fs from "fs";
+import * as path from "path";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
-const html = new Element("html");
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// console.log(cfg);
+
+const html = d.HTML;
 html.appendChild(links);
+let root = new Element("div", html);
+root.setId("root");
+
+let sb = new Element("div", root);
+sb.setAttribute("class", "search-box");
+let select = new Element("select", sb);
+new Element("span", sb).appendChild("[m]");
+select.setAttribute("name", "mode");
+// Note, need to somehow add autocomplete>
+select.setId("mode");
+
+let form = new Element("form", sb);
+form.setId("search");
+form.setAttribute("class", "search");
+form.setAttribute("method", "get");
+let input = new Element("input", form);
+input.setId("input_box");
+input.setAttribute("class", "input_box");
+input.setAttribute("type", "text");
+input.setAttribute("name", "q");
+input.setAttribute("autocomplete", "off").isSelfClosing();
+new Element("span", sb).appendChild("[s]");
 
 const inner = `
 
@@ -24,6 +57,20 @@ const inner = `
 
 `;
 
+// root.appendChild(inner);
+root.appendChild(links);
+root.appendChild(modes);
+
+new Element("script", root)
+  .setAttribute("type", "module")
+  .setAttribute("src", "keyHandler.js");
+new Element("script", root)
+  .setAttribute("type", "module")
+  .setAttribute("src", "searchHandler.js");
+
+let a = path.join(__dirname, "bundle.js");
+// console.log(fs.readFileSync(a, "utf-8"));
+
 console.log(
   `
 <!DOCTYPE html>
@@ -36,11 +83,7 @@ console.log(
     <title>ホームページ</title>
   </head>
   <body>
-    <div id="root">
-    ${render(html)}
-    ${inner}
-
-          </div>
+    ${render(root)}
   </body>
 </html>
 `
