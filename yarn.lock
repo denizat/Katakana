@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@denizat/node_html@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@denizat/node_html/-/node_html-1.0.2.tgz#6091be1d0e82d576c7549baef05f42d2c970e584"
+  integrity sha512-JZ6sQjzLYkSXfWMH6M8OGlbQ/6gNDbMSBoMTXOHclZhhgEyHZzT1SqTpEUK45irDG19nAmHmfef5dRz6lsixyQ==
+
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.2.tgz#8f03a22a04de437254e8ce8cc84ba39689288752"
