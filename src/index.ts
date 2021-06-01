@@ -1,16 +1,13 @@
 import { Element, render } from "@denizat/node_html";
-import { links } from "./links.js";
-import { modes } from "./modes.js";
 import { d } from "./document.js";
-import { cfg } from "./config.js";
-import * as fs from "fs";
-import * as path from "path";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
+// import { cfg } from "./config.js";
+// import * as fs from "fs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+// import * as path from "path";
+// import { dirname } from "path";
+// import { fileURLToPath } from "url";
 
-// console.log(cfg);
+// const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const html = d.HTML;
 html.appendChild(links);
@@ -57,9 +54,14 @@ const inner = `
 
 `;
 
-// root.appendChild(inner);
+import { links } from "./links.js";
 root.appendChild(links);
-root.appendChild(modes);
+
+import { modes } from "./modes.js";
+// root.appendChild(modes);
+if (d.getElementById("mode") instanceof Element) {
+  d.getElementById("mode").innerHTML = modes;
+}
 
 new Element("script", root)
   .setAttribute("type", "module")
@@ -68,7 +70,7 @@ new Element("script", root)
   .setAttribute("type", "module")
   .setAttribute("src", "searchHandler.js");
 
-let a = path.join(__dirname, "bundle.js");
+// let a = path.join(__dirname, "bundle.js");
 // console.log(fs.readFileSync(a, "utf-8"));
 
 console.log(
