@@ -1,5 +1,6 @@
 {
   "type": "module",
+  "license": "APGL-3.0-only",
   "devDependencies": {
     "@types/chrome": "^0.0.139",
     "@types/node": "^15.6.1",
