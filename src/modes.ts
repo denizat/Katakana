@@ -1,10 +1,7 @@
 import { Element } from "@denizat/node_html";
 import { cfg } from "./config.js";
-import { d } from "./document.js";
-// let DOMMode = d.getElementById("mode");
-let options: Element[] = [];
-console.log(d);
 
+let options: Element[] = [];
 cfg.searchModes.forEach((mode) => {
   let opt = new Element("option");
   opt.setAttribute("value", mode.linkOrPrefix);

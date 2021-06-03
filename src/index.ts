@@ -18,8 +18,7 @@ let sb = new Element("div", root);
 sb.setAttribute("class", "search-box");
 let select = new Element("select", sb);
 new Element("span", sb).appendChild("[m]");
-select.setAttribute("name", "mode");
-// Note, need to somehow add autocomplete>
+select.setAttribute("name", "mode").setAttribute("autocomplete", "on");
 select.setId("mode");
 
 let form = new Element("form", sb);
