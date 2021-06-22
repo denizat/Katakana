@@ -11,7 +11,7 @@ interface Mode {
 }
 type Modes = Mode[];
 
-class Config {
+export class Config {
   bookMarks: BookMarks = [];
   searchModes: Modes = [];
   defaultSearchLink: string;
@@ -79,7 +79,7 @@ config.addMode("Typescript", "t", "Typescript ");
 config.defaultSearchLink = config.searchModes[0].linkOrPrefix;
 
 config.zenMode = false;
-config.grabMouse = false;
+config.grabMouse = true;
 config.startWithFocusOnSearchBar = true;
 
 // export const cfg = config;
